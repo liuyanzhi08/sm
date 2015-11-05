@@ -1,0 +1,24 @@
+{
+  "name": "sm",
+  "version": "0.0.1",
+  "authors": [
+    "lyz <702368372@qq.com>"
+  ],
+  "description": "State manager",
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jasmine-standalone": "~2.3.2",
+    "jquery": "~2.1.4",
+    "q": "git://github.com/kriskowal/q.git#~1.0.1"
+  }
+}
