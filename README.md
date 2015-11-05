@@ -20,31 +20,26 @@ var fn = function() {
 var smFn = sm(fn);
 
 ```
-Just pass your promise function in , you get a state manager function ``smFn ``.
->now ``smFn.state == 'UNLOAD'``
+1. Just pass your promise function in , you get a state manager function ``smFn ``. Now ``smFn.state == 'UNLOAD'``
 
-after you request ``smFn() ``.
->now ``smFn.state == 'LOADING'``
+2. After you request ``smFn() ``. Now ``smFn.state == 'LOADING'``
 
-if the request returns success
->then ```smFn.state == 'LOAD'```
+3. If the request returns success. Then ```smFn.state == 'LOAD'```
 
-or the request returns error
-
->then you get ```smFn.state == 'ERROR'```
+4. Or the request returns error. Then you get ```smFn.state == 'ERROR'```
 
 API
 ---
->**sm(promiseFn, msg)**: get the promiseFn's state manager
+**sm(promiseFn, msg)**: get the promiseFn's state manager
 - params: 
   - ``promiseFn`` function that returns a *promise*
   - ``msg`` return msg. default is ``{s:'success', f:'fail'} ``, you can set it like this: ``{s:'mSuccess', f:'mFail'} ``
 - return: DECORATED_FN[function]
 
->**DECORATED_FN.state**: get request state
+**DECORATED_FN.state**: get request state
 - return: ``'UNLOAD'[string]`` ``'LOADING'[string]`` ``'LOADED'[string]`` ``'ERROR'[string]`` 
 
->**DECORATED_FN.msg**: get request returned msg
+**DECORATED_FN.msg**: get request returned msg
 - return: ``msg[string]``
 
 Version:
