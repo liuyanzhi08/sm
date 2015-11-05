@@ -7,7 +7,7 @@ Add states``UNLOAD, LOADING, LOAED, ERROR`` management support for ajax request.
 3. ``LOAED``  ajax request respond success
 4. ``ERROR `` ajax request respond error
 
-example
+Example
 ------------
 ```
 var fn = function() {
@@ -21,25 +21,26 @@ var smFn = sm(fn);
 
 ```
 Just pass your promise function in , you get a state manager function ``smFn ``.
-1. now ``smFn.state == 'UNLOAD'``
+>now ``smFn.state == 'UNLOAD'``
 
-  after you request ``smFn() ``.
-2. now ``smFn.state == 'LOADING'``
+after you request ``smFn() ``.
+>now ``smFn.state == 'LOADING'``
 
 if the request returns success
-3. then ```smFn.state == 'LOAD'```
+>then ```smFn.state == 'LOAD'```
 
 or the request returns error
 
-4. then you get ```smFn.state == 'ERROR'```
+>then you get ```smFn.state == 'ERROR'```
 
 API
 ---
 >**sm(promiseFn, msg)**: get the promiseFn's state manager
 - params: 
-  1. ``promiseFn`` function that returns a *promise*
-  2. ``msg`` return msg. default is ``{s:'success', f:'fail'} ``, you can set it like this: ``{s:'mSuccess', f:'mFail'} ``
+  - ``promiseFn`` function that returns a *promise*
+  - ``msg`` return msg. default is ``{s:'success', f:'fail'} ``, you can set it like this: ``{s:'mSuccess', f:'mFail'} ``
 - return: DECORATED_FN[function]
+
 >**DECORATED_FN.state**: get request state
 
 - return: ``'UNLOAD'[string]`` ``'LOADING'[string]`` ``'LOADED'[string]`` ``'ERROR'[string]`` 
