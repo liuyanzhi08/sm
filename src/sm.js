@@ -14,6 +14,7 @@ function sm(fn, MSG) {
         'LOADED': 'LOADED',
         'ERROR': 'ERROR'
     }
+
     var ret = function() {
         var promise = fn(arguments);
         if (!promise || !promise.then) {
@@ -30,6 +31,7 @@ function sm(fn, MSG) {
         ret.state = STATE.LOADING;
         return promise;
     }
+
     ret.state = STATE.UNLOAD;
     return ret;
 }
