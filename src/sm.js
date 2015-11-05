@@ -1,6 +1,6 @@
 function sm(fn, MSG) {
     if (typeof(fn) != 'function') {
-        console.error('sm: typeof fn should be function. And the function should return a $promise');
+        console.error('sm: typeof fn should be function. And the function should return a promise');
         return;
     }
 
