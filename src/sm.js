@@ -17,7 +17,7 @@ function sm(fn, MSG) {
     var ret = function() {
         var promise = fn(arguments);
         if (!promise || !promise.then) {
-            console.error('sm: param function should return a $promise');
+            console.error('sm: param function should return a promise');
             return;
         }
         promise.then(function() {
