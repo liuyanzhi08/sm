@@ -42,10 +42,8 @@ API
 - return: DECORATED_FN[function]
 
 >**DECORATED_FN.state**: get request state
-
 - return: ``'UNLOAD'[string]`` ``'LOADING'[string]`` ``'LOADED'[string]`` ``'ERROR'[string]`` 
 
-	
 >**DECORATED_FN.msg**: get request returned msg
 - return: ``msg[string]``
 
