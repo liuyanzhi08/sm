@@ -5,7 +5,7 @@ function sm(fn, MSG) {
     }
 
     if (!MSG) {
-        MSG = { S: 'success', F: 'fail'}
+        MSG = { s: 'success', f: 'fail'}
     }
 
     var STATE = {
@@ -22,10 +22,10 @@ function sm(fn, MSG) {
         }
         promise.then(function() {
             ret.state = STATE.LOADED;
-            ret.msg = MSG.S;
+            ret.msg = MSG.s;
         }, function() {
             ret.state = STATE.ERROR;
-            ret.msg = MSG.F;
+            ret.msg = MSG.f;
         });
         ret.state = STATE.LOADING;
         return promise;

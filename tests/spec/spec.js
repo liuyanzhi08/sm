@@ -1,4 +1,4 @@
-describe("state:", function() {
+describe("request state:", function() {
     var fn, smFn;
     beforeEach(function() {
         fn = function() {
@@ -41,7 +41,7 @@ describe("state:", function() {
         })
     })
 });
-describe("response:", function() {
+describe("response data:", function() {
     var fn, smFn;
     beforeEach(function() {
         fn = function() {
@@ -58,6 +58,66 @@ describe("response:", function() {
         smFn().then(function(data) {
             expect(data).toBe('foo');
             done();
+        })
+    })
+})
+describe("response msg:", function() {
+    describe("success smg", function() {
+        var fn, smFn;
+        beforeEach(function() {
+            fn = function() {
+                var deferred = Q.defer();
+                setTimeout(function() {
+                    deferred.resolve();
+                }, 100);
+                return deferred.promise;
+            };
+        })
+        it("default is 'success'", function(done) {
+            smFn = sm(fn);
+            smFn().then(function() {
+                expect(smFn.msg).toBe('success');
+                done();
+            })
+        })
+        it("can be costumized", function(done) {
+            smFn = sm(fn, {
+                s: 'mySuccess'
+            });
+            smFn().then(function() {
+                expect(smFn.msg).toBe('mySuccess');
+                done();
+            })
+        })
+    })
+    describe("fail smg", function() {
+        var fn, smFn;
+        beforeEach(function() {
+            fn = function() {
+                var deferred = Q.defer();
+                setTimeout(function() {
+                    deferred.reject();
+                }, 100);
+                return deferred.promise;
+            };
+        })
+        it("default is 'success'", function(done) {
+            smFn = sm(fn);
+            smFn().then(function() {
+            }, function() {
+                expect(smFn.msg).toBe('fail');
+                done();
+            })
+        })
+        it("can be costumized", function(done) {
+            smFn = sm(fn, {
+                f: 'myFail'
+            });
+            smFn().then(function() {
+            }, function() {
+                expect(smFn.msg).toBe('myFail');
+                done();
+            })
         })
     })
 })
